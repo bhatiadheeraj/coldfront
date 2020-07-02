@@ -174,7 +174,7 @@ Project Detail
   <div class="card-body">
     {% if allocations %}
     <div class="table-responsive">
-      <table class="table table-hover">
+      <table id="allocation_table" class="table table-hover">
         <thead>
           <tr>
             <th>Resource Name</th>
@@ -243,7 +243,7 @@ Project Detail
   <div class="card-body">
     {% if grants %}
     <div class="table-responsive">
-      <table class="table table-hover">
+      <table id="grant_table" class="table table-hover">
         <thead>
           <tr>
             <th scope="col">Title</th>
@@ -390,6 +390,8 @@ $(document).ready(function(){
       "bSortClasses": false,
       "order": [[ 1, "desc" ]]
     });
+    $('#allocation_table').DataTable();
+    $('#grant_table').DataTable();
 });
 
 
