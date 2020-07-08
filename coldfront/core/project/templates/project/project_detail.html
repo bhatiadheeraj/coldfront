@@ -182,7 +182,7 @@ Project Detail
             <th>Information</th>
             <th>Status</th>
             <th>End Date</th>
-            <th>Actions</th>
+            <th class="nosort">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -252,7 +252,7 @@ Project Detail
             <th scope="col" class="text-nowrap">Award Amount</th>
             <th scope="col" class="text-nowrap">Grant Start Date</th>
             <th scope="col" class="text-nowrap">Grant End Date</th>
-            <th scope="col">Actions</th>
+            <th scope="col" class="nosort">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -390,8 +390,18 @@ $(document).ready(function(){
       "bSortClasses": false,
       "order": [[ 1, "desc" ]]
     });
-    $('#allocation_table').DataTable();
-    $('#grant_table').DataTable();
+    $('#allocation_table').DataTable({
+   'aoColumnDefs': [{
+        'bSortable': false,
+        'aTargets': ['nosort']
+    }]
+});
+    $('#grant_table').DataTable({
+   'aoColumnDefs': [{
+        'bSortable': false,
+        'aTargets': ['nosort']
+    }]
+});
 });
 
 
