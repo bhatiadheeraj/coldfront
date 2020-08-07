@@ -212,8 +212,8 @@ Project Detail
                 </a>
               {% endif %}
               {% if allocation.get_parent_resource.resource_type.name == 'Cluster' and ondemand_url %}
-                  <a href = "{{ondemand_url}}"><img src="ondemand.jpg" alt="ondemand cta" width="40" height="40"></a>
-             {% endif %}
+                <a href = "{{ondemand_url}}"> <img src="/static/core/portal/imgs/ondemand.jpg" alt="ondemand cta" width="40" height="40"></a>
+              {% endif %}
             </td>
           </tr>
           {% endfor %}
