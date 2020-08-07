@@ -2,6 +2,7 @@ import datetime
 import pprint
 
 from django.conf import settings
+from coldfront.core.utils.common import import_from_settings
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
@@ -43,6 +44,7 @@ from coldfront.core.user.forms import UserSearchForm
 from coldfront.core.user.utils import CombinedUserSearch
 from coldfront.core.utils.common import get_domain_url, import_from_settings
 from coldfront.core.utils.mail import send_email, send_email_template
+
 
 EMAIL_ENABLED = import_from_settings('EMAIL_ENABLED', False)
 ALLOCATION_ENABLE_ALLOCATION_RENEWAL = import_from_settings(
@@ -129,6 +131,9 @@ class ProjectDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
         context['allocations'] = allocations
         context['project_users'] = project_users
         context['ALLOCATION_ENABLE_ALLOCATION_RENEWAL'] = ALLOCATION_ENABLE_ALLOCATION_RENEWAL
+        if(settings.ONDEMAND_URL != None):
+            print(settings.ONDEMAND_URL)
+            context['ondemand_url'] = settings.ONDEMAND_URL
         return context
 
 
