@@ -165,6 +165,14 @@ class Allocation(TimeStampedModel):
         attr = self.allocationattribute_set.filter(
             allocation_attribute_type__name=name).all()
         return [a.value for a in attr]
+    
+    def attr_on_demand_true(self):
+        attr = self.allocationattribute_set.all()
+        for x in attr:
+            if(x.allocation_attribute_type.name == "On Demand Integration" and x.value == "Yes"):
+                return True
+        return False
+
 
     def __str__(self):
         return "%s (%s)" % (self.get_parent_resource.name, self.project.pi)
