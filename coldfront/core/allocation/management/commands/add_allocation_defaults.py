@@ -31,6 +31,7 @@ class Command(BaseCommand):
             ('EXPIRE NOTIFICATION', 'Yes/No', False, True),
             ('freeipa_group', 'Text', False, False),
             ('Is Course?', 'Yes/No', False, True),
+            ('On Demand Integration','Yes/No',False,False),
             ('Paid', 'Float', False, False),
             ('Paid Cloud Support (Hours)', 'Float', True, True),
             ('Paid Network Support (Hours)', 'Float', True, True),
